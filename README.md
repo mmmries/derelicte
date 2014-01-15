@@ -1,29 +1,11 @@
 # JavaCssInliner
 
-TODO: Write a gem description
+Take an html template and css file and inline the css rules into style attributes.
 
-## Installation
+This is mostly useful for sending emails.
 
-Add this line to your application's Gemfile:
-
-    gem 'java_css_inliner'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install java_css_inliner
+This gem attempts to make the inlining process very performant. If you want a richer feature set and more usability please see [Roadie](https://github.com/Mange/roadie) or [PreMailer](http://premailer.dialect.ca/).
 
 ## Usage
 
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it ( http://github.com/<my-github-username>/java_css_inliner/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+Once I have some passing specs I will write some usability documentation
