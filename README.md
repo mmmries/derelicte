@@ -34,4 +34,11 @@ inlined_html = inliner.inline(html, css) # => "<p style=\"color: #ff0000;\">ohai
 ## Current Issues
 
  * doctypes with full URLs (like xhtml) will make the process extremely slow since the standard java libraries attempt to fetch and parse the DTD. It is highly recommended that you simply use an HTML 5 style doctype (<code><!DOCTYPE html></code>)
- * Since we use a basic XML parser it is pretty sensitive to bad markup. Things like unclosed breaks (<code><br></code> instead of <code><br /></code>) will cause it to choke. Make sure you double-check your templates.
+ * Since we use a basic XML parser it is pretty sensitive to bad markup. Things like unclosed breaks will cause it to choke. Make sure you double-check your templates.
+
+```html
+<br> the xml parser will choke on this
+<br/> This is okay
+<img href="/icon.png"> The xml parser will choke on this
+<img href="/icon.png"/> This is okay
+```
