@@ -1,3 +1,3 @@
-module JavaCssInliner
+module JavaCSSInliner
   VERSION = "0.0.1"
 end
