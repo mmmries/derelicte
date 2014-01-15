@@ -28,7 +28,7 @@ File.open(output_file, 'w') do |f|
 end
 
 # Warmup the JIT
-100.times do
+500.times do
   inliner.inline(html_str, css_str)
 end
 

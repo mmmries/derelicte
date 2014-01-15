@@ -23,6 +23,7 @@ module JavaCSSInliner
     reader = java.io.StringReader.new(str.to_java_string)
     source = Java::OrgXmlSax::InputSource.new(reader)
     fac = Java::JavaxXmlParsers::DocumentBuilderFactory.newInstance()
+    fac.set_validating(false)
     fac.set_namespace_aware(false)
     builder = fac.new_document_builder
     builder.parse(source)

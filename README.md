@@ -21,4 +21,4 @@ inlined_html = inliner.inline(html, css) # => "<p style=\"color: #ff0000;\">ohai
 
 ## Current Issues
 
- * The doctype seems to be getting lost somewhere so a hardcoded doctype of <code><!DOCTYPE html></code> is being added automatically
+ * doctypes with full URLs (like xhtml) will make the process extremely slow since the standard java libraries attempt to fetch and parse the DTD. It is highly recommended that you simply use an HTML 5 style doctype (<code><!DOCTYPE html></code>)
