@@ -12,6 +12,8 @@ require 'css/inliner'
 require 'css/inliner_job'
 
 module JavaCSSInliner
+  DOCTYPE = "<!DOCTYPE html>"
+
   def self.css_analyzer_from_str(str)
     stylesheet = Java::CzVutbrWebCss::CSSFactory.parse(str)
     Java::CzVutbrWebDomassign::Analyzer.new(stylesheet)
@@ -27,8 +29,11 @@ module JavaCSSInliner
   end
 
   def self.doc_to_str(doc)
-    doc.get_implementation.get_feature('LS','3.0')
-       .create_ls_serializer
-       .write_to_string(doc)
+    serializer = doc.get_implementation
+                    .get_feature('LS','3.0')
+                    .create_ls_serializer
+    serializer.get_dom_config.set_parameter('xml-declaration', false)
+    doc_str = serializer.write_to_string(doc)
+    DOCTYPE + "\n" + doc_str
   end
 end

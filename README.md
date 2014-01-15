@@ -8,4 +8,17 @@ This gem attempts to make the inlining process very performant. If you want a ri
 
 ## Usage
 
-Once I have some passing specs I will write some usability documentation
+Simplest possible usage:
+
+```ruby
+html = "<p>ohai</p>"
+css = "p { color: #ff0000; }"
+
+inliner = CSS::Inliner.new
+inlined_html = inliner.inline(html, css) # => "<p style=\"color: #ff0000;\">ohai</p>"
+```
+
+
+## Current Issues
+
+ * The doctype seems to be getting lost somewhere so a hardcoded doctype of <code><!DOCTYPE html></code> is being added automatically
