@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Derelicte::VERSION
   spec.authors       = ["Michael Ries"]
   spec.email         = ["michael@riesd.com"]
-  spec.summary       = "Inline CSS rules in an HTML template very quickly"
-  spec.description   = spec.summary
+  spec.summary       = "JRuby specific css inliner aiming for maximum performance"
+  spec.description   = "A JRuby specific gem that takes an html template and css file and inlines the css rules into style attributes. This is mostly useful for sending emails."
   spec.homepage      = "https://github.com/hqmq/derelicte"
   spec.license       = "MIT"
   spec.platform      = "java"
