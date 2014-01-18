@@ -1,10 +1,14 @@
-# JavaCssInliner
+# Derelicte
+
+![Derelicte Gif](http://24.media.tumblr.com/d7c64874eeae527c2661cda9c107984c/tumblr_msas87gWdt1qaehqco1_400.gif)
 
 Take an html template and css file and inline the css rules into style attributes.
 
 This is mostly useful for sending emails.
 
 This gem attempts to make the inlining process very performant. If you want a richer feature set and more usability please see [Roadie](https://github.com/Mange/roadie) or [PreMailer](http://premailer.dialect.ca/).
+
+This gem was only created because I was involved in a project where the above options were too slow to be feasible in day-to-day operations.
 
 ## How much time are we talking about?
 
@@ -37,8 +41,15 @@ inlined_html = inliner.inline(html, css) # => "<p style=\"color: #ff0000;\">ohai
  * Since we use a basic XML parser it is pretty sensitive to bad markup. Things like unclosed breaks will cause it to choke. Make sure you double-check your templates.
 
 ```html
-<br> the xml parser will choke on this
-<br/> This is okay
-<img href="/icon.png"> The xml parser will choke on this
-<img href="/icon.png"/> This is okay
+<!-- Things that will break the XML parsing -->
+<br>
+<img href="/icon.png">
+<meta charset='utf-8'>
+<hr>
+
+<!-- These things are okay for the XML parser -->
+<br/>
+<img href="/icon.png" />
+<meta charset='utf-8' />
+<hr/>
 ```
