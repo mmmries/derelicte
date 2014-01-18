@@ -2,11 +2,9 @@
 
 ![Derelicte Gif](http://24.media.tumblr.com/d7c64874eeae527c2661cda9c107984c/tumblr_msas87gWdt1qaehqco1_400.gif)
 
-Take an html template and css file and inline the css rules into style attributes.
+A JRuby specific gem that takes an html template and css file and inlines the css rules into style attributes.  This is mostly useful for sending emails.
 
-This is mostly useful for sending emails.
-
-This gem attempts to make the inlining process very performant. If you want a richer feature set and more usability please see [Roadie](https://github.com/Mange/roadie) or [PreMailer](http://premailer.dialect.ca/).
+This gem attempts to make the inlining process very performant. If you want a richer feature set please see [Roadie](https://github.com/Mange/roadie) or [PreMailer](http://premailer.dialect.ca/).
 
 This gem was only created because I was involved in a project where the above options were too slow to be feasible in day-to-day operations.
 
@@ -17,10 +15,12 @@ I used an example welcome email from my current job that uses the [Zurb Ink](htt
 ```bash
                                      user     system      total        real
 roadie 3                         0.430000   0.030000   0.460000 (  0.499000)
-java_css_inliner                 0.000000   0.000000   0.000000 (  0.010000)
+derelicte                        0.000000   0.000000   0.000000 (  0.010000)
 ```
 
 Saving roughly 50x is not too shabby, but we definitely make some tradeoffs to get that performance.
+
+Derelicte uses a handful of native jars (can only used with JRuby) and does not change url paths or inline images via base64 data in tags.
 
 ## Usage
 
