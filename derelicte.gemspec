@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'java_css_inliner/version'
+require 'derelicte/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "java_css_inliner"
-  spec.version       = JavaCSSInliner::VERSION
+  spec.name          = "derelicte"
+  spec.version       = Derelicte::VERSION
   spec.authors       = ["Michael Ries"]
   spec.email         = ["michael@riesd.com"]
   spec.summary       = "Inline CSS rules in an HTML template very quickly"
   spec.description   = spec.summary
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/hqmq/derelicte"
   spec.license       = "MIT"
   spec.platform      = "java"
 

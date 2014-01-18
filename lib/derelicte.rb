@@ -1,4 +1,4 @@
-require "java_css_inliner/version"
+require "derelicte/version"
 
 # Load jars
 require 'jars/antlr-runtime-3.1.jar'
@@ -8,10 +8,10 @@ require 'jars/xml-apis-1.3.04.jar'
 require 'jars/jstyleparser-1.7.0.jar'
 
 # Load local classes
-require 'css/inliner'
-require 'css/inliner_job'
+require 'derelicte/inliner'
+require 'derelicte/inliner_job'
 
-module JavaCSSInliner
+module Derelicte
   DOCTYPE = "<!DOCTYPE html>"
 
   def self.css_analyzer_from_str(str)

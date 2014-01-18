@@ -1,5 +1,5 @@
 require 'pry-nav'
-module CSS
+module Derelicte
   class InlinerJob
     attr_reader :doc
 

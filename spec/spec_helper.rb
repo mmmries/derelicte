@@ -1,7 +1,7 @@
 require 'bundler/setup'
 require 'rspec'
 require 'better_receive'
-require 'java_css_inliner'
+require 'derelicte'
 
 RSpec.configure do |c|
   c.color = true

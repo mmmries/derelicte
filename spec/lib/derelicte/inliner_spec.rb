@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CSS::Inliner do
+describe Derelicte::Inliner do
   let(:css) { "p { color: #ff0000; }" }
   let(:html) { "<div><p>ohai</p></div>" }
 
