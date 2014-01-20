@@ -1,11 +1,17 @@
 require "derelicte/version"
 
 # Load jars
-require 'jars/antlr-runtime-3.1.jar'
-require 'jars/slf4j-api-1.5.2.jar'
-require 'jars/slf4j-nop-1.5.2.jar'
+unless defined?(::Java::OrgAntlrRuntime::Parser)
+  require 'jars/antlr-runtime-3.1.jar'
+end
+unless defined?(org.slf4j.Logger)
+  require 'jars/slf4j-api-1.5.2.jar'
+  require 'jars/slf4j-nop-1.5.2.jar'
+end
 require 'jars/xml-apis-1.3.04.jar'
-require 'jars/jstyleparser-1.7.0.jar'
+unless defined?(::Java.cz.vutbr.web.css::CSSFactory)
+  require 'jars/jstyleparser-1.7.0.jar'
+end
 
 # Load local classes
 require 'derelicte/inliner'
