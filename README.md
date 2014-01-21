@@ -34,6 +34,13 @@ Simplest possible usage:
 html = "<p>ohai</p>"
 css = "p { color: #ff0000; }"
 
-inliner = CSS::Inliner.new
-inlined_html = inliner.inline(html, css) # => "<p style=\"color: #ff0000;\">ohai</p>"
+inlined_html = ::Derelicte.inline(html, css) # => "<p style=\"color: #ff0000;\">ohai</p>"
 ```
+
+## Roadmap
+
+Some basic profiling shows that the current process spends about 1/3 of its time parsing the css rules and 1/3 of its time applying the rules to the DOM.
+
+Future versions will probably have a threadsafe way of caching the parsed css files since you generally only have a couple of different css sources.
+
+Future versions will also explore the possiblity of applying the rules to the DOM with raw java code to see how much of that time we can eliminate.

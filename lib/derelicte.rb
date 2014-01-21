@@ -43,4 +43,8 @@ module Derelicte
     doc_str = serializer.write_to_string(doc)
     DOCTYPE + "\n" + doc_str
   end
+
+  def self.inline(html, css)
+    ::Derelicte::Inliner.new.inline(html,css)
+  end
 end
