@@ -18,7 +18,7 @@ module Derelicte
 
     def apply_rules_to(element)
       rules = assignments.get(element)
-      return nil if rules.nil?
+      return nil if rules.nil? || rules.length == 0
       rule_str = rules.map(&:to_s).map(&:chomp).join
       element.set_attribute('style', rule_str)
     end

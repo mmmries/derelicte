@@ -12,6 +12,9 @@ require 'jars/xml-apis-1.3.04.jar'
 unless defined?(::Java.cz.vutbr.web.css::CSSFactory)
   require 'jars/jstyleparser-1.7.0.jar'
 end
+unless defined?(Java::NuValidatorHtmlparserDom::HtmlDocumentBuilder)
+  require 'jars/htmlparser-1.4'
+end
 
 # Load local classes
 require 'derelicte/inliner'
@@ -28,10 +31,7 @@ module Derelicte
   def self.doc_from_str(str)
     reader = java.io.StringReader.new(str.to_java_string)
     source = Java::OrgXmlSax::InputSource.new(reader)
-    fac = Java::JavaxXmlParsers::DocumentBuilderFactory.newInstance()
-    fac.set_validating(false)
-    fac.set_namespace_aware(false)
-    builder = fac.new_document_builder
+    builder = Java.nu.validator.htmlparser.dom.HtmlDocumentBuilder.new
     builder.parse(source)
   end
 

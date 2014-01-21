@@ -48,6 +48,12 @@ job = ::Derelicte::InlinerJob.new(doc, analyzer)
 job.send(:assignments)
 
 Benchmark.bm(40) do |bm|
+  bm.report('parse doc (10x)') do
+    10.times do
+      doc = Derelicte.doc_from_str(html_str)
+    end
+  end
+
   bm.report('parse css to analyzer (10x)') do
     10.times do
       analyzer = ::Derelicte.css_analyzer_from_str(css_str)
