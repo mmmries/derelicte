@@ -17,4 +17,13 @@ describe Derelicte::Inliner do
       Derelicte.doc_from_str(inlined_html)
     }.to_not raise_error
   end
+
+  context "xhtml doctype" do
+    let(:html) { file_contents('xhtml_dom.html') }
+
+    it "should change the doctype to html 5 standard" do
+      inlined_html = subject.inline(html, css)
+      expect(inlined_html).to start_with("<!DOCTYPE html>")
+    end
+  end
 end
