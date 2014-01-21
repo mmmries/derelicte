@@ -37,23 +37,3 @@ css = "p { color: #ff0000; }"
 inliner = CSS::Inliner.new
 inlined_html = inliner.inline(html, css) # => "<p style=\"color: #ff0000;\">ohai</p>"
 ```
-
-
-## Current Issues
-
- * doctypes with full URLs (like xhtml) will make the process extremely slow since the standard java libraries attempt to fetch and parse the DTD. It is highly recommended that you simply use an HTML 5 style doctype (<code><!DOCTYPE html></code>)
- * Since we use a basic XML parser it is pretty sensitive to bad markup. Things like unclosed breaks will cause it to choke. Make sure you double-check your templates.
-
-```html
-<!-- Things that will break the XML parsing -->
-<br>
-<img href="/icon.png">
-<meta charset='utf-8'>
-<hr>
-
-<!-- These things are okay for the XML parser -->
-<br/>
-<img href="/icon.png" />
-<meta charset='utf-8' />
-<hr/>
-```
