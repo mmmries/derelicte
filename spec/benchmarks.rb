@@ -33,11 +33,6 @@ end
   inliner.inline(html_str, css_str)
 end
 
-# Warmup the alternate parser
-1000.times do
-  Derelicte.new_doc_from_str(html_str)
-end
-
 # Benchmark the JIT optimized time
 Benchmark.bm(40) do |bm|
   bm.report('after warmup (10x)') do
@@ -53,15 +48,9 @@ job = ::Derelicte::InlinerJob.new(doc, analyzer)
 job.send(:assignments)
 
 Benchmark.bm(40) do |bm|
-  bm.report('parse doc old way 10x') do
+  bm.report('parse doc (10x)') do
     10.times do
       doc = Derelicte.doc_from_str(html_str)
-    end
-  end
-
-  bm.report('parse doc new way 10x') do
-    10.times do
-      doc = Derelicte.new_doc_from_str(html_str)
     end
   end
 

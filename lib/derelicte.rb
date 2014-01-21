@@ -31,16 +31,6 @@ module Derelicte
   def self.doc_from_str(str)
     reader = java.io.StringReader.new(str.to_java_string)
     source = Java::OrgXmlSax::InputSource.new(reader)
-    fac = Java::JavaxXmlParsers::DocumentBuilderFactory.newInstance()
-    fac.set_validating(false)
-    fac.set_namespace_aware(false)
-    builder = fac.new_document_builder
-    builder.parse(source)
-  end
-
-  def self.new_doc_from_str(str)
-    reader = java.io.StringReader.new(str.to_java_string)
-    source = Java::OrgXmlSax::InputSource.new(reader)
     builder = Java.nu.validator.htmlparser.dom.HtmlDocumentBuilder.new
     builder.parse(source)
   end
