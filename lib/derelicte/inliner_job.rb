@@ -19,7 +19,7 @@ module Derelicte
     def apply_rules_to(element)
       rules = assignments.get(element)
       return nil if rules.nil? || rules.length == 0
-      rule_str = rules.map(&:to_s).map(&:chomp).join
+      rule_str = unique_rules(rules).map(&:to_s).map(&:chomp).join
       element.set_attribute('style', rule_str)
     end
 
@@ -33,6 +33,14 @@ module Derelicte
         element = elements.item(idx)
         yield(element)
       end
+    end
+
+    def unique_rules(rules)
+      hash = rules.inject({}) do |hash, rule|
+        hash[rule.property] = rule
+        hash
+      end
+      hash.values
     end
   end
 end
