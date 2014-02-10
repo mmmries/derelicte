@@ -1,4 +1,3 @@
-require 'pry-nav'
 module Derelicte
   class InlinerJob
     attr_reader :doc
