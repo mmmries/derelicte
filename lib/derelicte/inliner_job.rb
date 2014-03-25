@@ -26,8 +26,6 @@ module Derelicte
       end
     end
 
-
-
     private
     attr_reader :analyzer
 
