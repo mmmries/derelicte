@@ -12,6 +12,22 @@ module Derelicte
       end
     end
 
+    def has_inline_css?
+      html = ::Derelicte.doc_to_str(doc)
+      html.scan(/style=/).empty? == false
+    end
+
+    def get_inline_styles
+      styles = { }
+      order  = 0
+      each_elements do |element|
+        styles[order] = element.get_attribute("style")
+        order += 1
+      end
+    end
+
+
+
     private
     attr_reader :analyzer
 
@@ -23,6 +39,7 @@ module Derelicte
     end
 
     def assignments
+      # assing_declarations_to_dom is a method from the java library
       @assignments ||= analyzer.assing_declarations_to_dom(doc, "screen", false)
     end
 
