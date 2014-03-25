@@ -12,20 +12,6 @@ module Derelicte
       end
     end
 
-    def has_inline_css?
-      html = ::Derelicte.doc_to_str(doc)
-      html.scan(/style=/).empty? == false
-    end
-
-    def get_inline_styles
-      styles = { }
-      order  = 0
-      each_elements do |element|
-        styles[order] = element.get_attribute("style")
-        order += 1
-      end
-    end
-
     private
     attr_reader :analyzer
 
@@ -33,6 +19,7 @@ module Derelicte
       rules = assignments.get(element)
       return nil if rules.nil? || rules.length == 0
       rule_str = unique_rules(rules).map(&:to_s).map(&:chomp).join
+      rule_str << element.get_attribute('style') if element.get_attribute('style')
       element.set_attribute('style', rule_str)
     end
 

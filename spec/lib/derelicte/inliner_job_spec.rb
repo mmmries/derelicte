@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'pry'
 
 describe ::Derelicte::InlinerJob do
   let(:doc) { ::Derelicte.doc_from_str('<p class="red">ohai</p>') }
