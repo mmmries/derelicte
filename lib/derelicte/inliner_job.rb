@@ -19,10 +19,12 @@ module Derelicte
       rules = assignments.get(element)
       return nil if rules.nil? || rules.length == 0
       rule_str = unique_rules(rules).map(&:to_s).map(&:chomp).join
+      rule_str << element.get_attribute('style') if element.get_attribute('style')
       element.set_attribute('style', rule_str)
     end
 
     def assignments
+      # assing_declarations_to_dom is a method from the java library
       @assignments ||= analyzer.assing_declarations_to_dom(doc, "screen", false)
     end
 

@@ -26,4 +26,14 @@ describe Derelicte::Inliner do
       expect(inlined_html).to start_with("<!DOCTYPE html>")
     end
   end
+
+  context "existing inline styles" do
+    let(:html) { file_contents('inline_style_dom.html') }
+
+    it "should append to existing inline styles" do
+      inlined_html = subject.inline(html, css)
+      expect(inlined_html).to include('<p style="color: #ff0000;">ohai</p>')
+      expect(inlined_html).to include('<p style="color: #ff0000;font-size: 18pt;">ohai</p>')
+    end
+  end
 end
