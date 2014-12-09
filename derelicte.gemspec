@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["michael@riesd.com"]
   spec.summary       = "JRuby specific css inliner aiming for maximum performance"
   spec.description   = "A JRuby specific gem that takes an html template and css file and inlines the css rules into style attributes. This is mostly useful for sending emails."
-  spec.homepage      = "https://github.com/hqmq/derelicte"
+  spec.homepage      = "https://github.com/mmmries/derelicte"
   spec.license       = "MIT"
   spec.platform      = "java"
 
