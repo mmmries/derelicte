@@ -1,8 +1,8 @@
 # Derelicte
 
-[![Build Status](https://travis-ci.org/hqmq/derelicte.png)](https://travis-ci.org/hqmq/derelicte)
-[![Code Climate](https://codeclimate.com/github/hqmq/derelicte.png)](https://codeclimate.com/github/hqmq/derelicte)
-[![Dependency Status](https://gemnasium.com/hqmq/derelicte.png)](https://gemnasium.com/hqmq/derelicte)
+[![Build Status](https://travis-ci.org/mmmries/derelicte.png)](https://travis-ci.org/hqmq/derelicte)
+[![Code Climate](https://codeclimate.com/github/mmmries/derelicte.png)](https://codeclimate.com/github/hqmq/derelicte)
+[![Dependency Status](https://gemnasium.com/mmmries/derelicte.png)](https://gemnasium.com/hqmq/derelicte)
 
 ![Derelicte Gif](http://24.media.tumblr.com/d7c64874eeae527c2661cda9c107984c/tumblr_msas87gWdt1qaehqco1_400.gif)
 
