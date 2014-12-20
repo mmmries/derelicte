@@ -1,3 +1,5 @@
 language: ruby
+sudo: false
 rvm:
   - jruby
+  - jruby-head
