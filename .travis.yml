@@ -4,4 +4,3 @@ cache: bundler
 rvm:
   - jruby
   - jruby-head
-  - jruby-9.0.0.0.pre1
