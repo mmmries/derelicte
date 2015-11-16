@@ -8,11 +8,8 @@ describe ::Derelicte do
   let(:inliner) { ::Derelicte::Inliner.new }
 
   it "has a convenience method for doing inlining" do
-    inliner.better_receive(:inline)
-      .with(html, css).and_return(inlined)
-
-    ::Derelicte::Inliner.better_receive(:new)
-      .with().and_return( inliner )
+    expect(::Derelicte::Inliner).to receive(:new).with(no_args).and_return( inliner )
+    expect(inliner).to receive(:inline).with(html, css).and_return(inlined)
 
     expect(subject.inline(html, css)).to eq(inlined)
   end

@@ -1,11 +1,14 @@
 require 'bundler/setup'
 require 'rspec'
-require 'better_receive'
 require 'derelicte'
 
 RSpec.configure do |c|
   c.color = true
   c.order = :rand
+
+  c.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
+  end
 end
 
 def file_contents(basename)
