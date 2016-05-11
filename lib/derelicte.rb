@@ -4,7 +4,7 @@ require "derelicte/version"
 unless defined?(::Java::OrgAntlrRuntime::Parser)
   require 'jars/antlr-runtime-3.1.jar'
 end
-unless defined?(org.slf4j.Logger)
+unless defined?(Java::OrgSlf4j::Logger)
   require 'jars/slf4j-api-1.5.2.jar'
   require 'jars/slf4j-nop-1.5.2.jar'
 end
